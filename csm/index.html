@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Delegado - CSM</title>
+    <style>
+        /* Estilos básicos para identidade visual militar */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            border-top: 5px solid #1e4620; /* Verde Oliva Escuro */
+        }
+        .header-login {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .header-login h2 {
+            margin: 5px 0;
+            color: #1e4620;
+            font-size: 24px;
+        }
+        .header-login p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .form-group input:focus, .form-group select:focus {
+            border-color: #1e4620;
+            outline: none;
+        }
+        .btn-acessar {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e4620;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-acessar:hover {
+            background-color: #132e14;
+        }
+        .footer-login {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <div class="header-login">
+        <h2>Painel do Delegado</h2>
+        <p>Circunscrição de Serviço Militar - CSM</p>
+    </div>
+
+    <form id="formLoginCsm">
+        <div class="form-group">
+            <label for="csmSelect">Selecione sua CSM:</label>
+            <select id="csmSelect" required>
+                <option value="">-- Selecione --</option>
+                <option value="16">16ª CSM</option>
+                <option value="05">05ª CSM</option>
+                <option value="11">11ª CSM</option>
+                </select>
+        </div>
+
+        <div class="form-group">
+            <label for="emailDelegado">E-mail Cadastrado:</label>
+            <input type="email" id="emailDelegado" placeholder="exemplo@suamail.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senhaDelegado">Senha de Acesso:</label>
+            <input type="password" id="senhaDelegado" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn-acessar">Entrar no Sistema</button>
+    </form>
+
+    <div class="footer-login">
+        Desenvolvido por App-JSM &copy; 2026
+    </div>
+</div>
+
+<script>
+    // Aqui vai entrar a nossa lógica do LocalStorage e a busca na Planilha Mãe
+    document.getElementById('formLoginCsm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const csm = document.getElementById('csmSelect').value;
+        const email = document.getElementById('emailDelegado').value;
+        const senha = document.getElementById('senhaDelegado').value;
+
+        alert('Acessando o motor da ' + csm + 'ª CSM para validar o usuário...');
+        // Próximo passo: fazer o fetch para a planilha mãe descobrir a URL dessa CSM!
+    });
+</script>
+
+</body>
+</html>
